@@ -1,0 +1,46 @@
+$primary-button-color: #409ab8;
+$secondary-button-color: #6aafc6;
+$cancel-button-color: #dc5959;
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  textarea,
+  input {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    border-radius: 5px;
+    background-color: $primary-button-color;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $secondary-button-color;
+    }
+  }
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 5px;
+
+  button {
+    flex: 1;
+  }
+
+  button:last-of-type {
+    background-color: $cancel-button-color;
+    color: white;
+  }
+}
