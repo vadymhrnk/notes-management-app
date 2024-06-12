@@ -11,6 +11,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -34,12 +35,14 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    @Transactional
     public NoteDto save(NoteRequestDto requestDto) {
         Note note = noteMapper.toModel(requestDto);
         return noteMapper.toDto(noteRepository.save(note));
     }
 
     @Override
+    @Transactional
     public NoteDto update(Long id, NoteRequestDto requestDto) {
         Note note = noteRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException(ENTITY_NOT_FOUND_MESSAGE + id)
